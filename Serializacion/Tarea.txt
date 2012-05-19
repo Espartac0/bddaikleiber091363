@@ -1,0 +1,9 @@
+TAREA 
+
+1. Probar la serializacion con clases que tienen atributos transient y static
+2. Defina una clase Persona para ecapsular el nombre de una persona y su direccion .El nombre y la direccion debe ser del tipo nombre y tipo de dirrecciones  que deben introducirse desde el teclado , se almacenen como objetos de persona en un archivo una vez que el archivo existe se añaden nuevas entradas del archivo
+
+
+ESTUDIAR 
+	FILES ----> JAVA
+	TIPOS GENERICOS JAVA
