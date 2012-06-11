@@ -62,16 +62,21 @@ public class GestorMemoriaIntermedia {
     //pone una pagina en el buffer de memoria intermedia
     public Pagina ponerPaginaEnBuffer(Pagina pagina){
         //si la pagina esta en el buffer
+        System.out.println("****" + estaPaginaEnBuffer(pagina));
         if(estaPaginaEnBuffer(pagina)){
-        /*SI LA PAGINA SE ENCUENTRA EN EL BUFFER MODIFICAMOS SU VALOR 
-          COMO ACTUALIZADO Y MANDAMOS A GRABAR EN DISCO
-        */
-            int posicion = posicionDePaginaEnBuffer(numeroPaginas);
-            if(pagina.getDatos() != buffer[posicion].getDatos()){
-                pagina.setActualizo(true);    
-                /*MANDAMOS A GRABAR EN DISCO Y MODIFICAMOS EL VALOR EN EL BUFFER Y LA COLA*/
-                buffer[posicion] = GrabarEnDisco(pagina);
+            if(!pagina.getClavada()){
+                /*SI LA PAGINA SE ENCUENTRA EN EL BUFFER MODIFICAMOS SU VALOR 
+                COMO ACTUALIZADO Y MANDAMOS A GRABAR EN DISCO
+                */
+                int posicion = posicionDePaginaEnBuffer(numeroPaginas);
+                if(pagina.getDatos() != buffer[posicion].getDatos()){
+                    pagina.setActualizo(true);    
+                    /*MANDAMOS A GRABAR EN DISCO Y MODIFICAMOS EL VALOR EN EL BUFFER Y LA COLA*/
+                    buffer[posicion] = GrabarEnDisco(pagina);
+                }
             }
+            else
+                System.out.println("LA PAGINA NO SE PUEDE MODIFICAR ,DEBIDO A QUE ES UNA PAGINA CLAVADA");
             return null;
         }
         //si la pagina no  esta en el buffer , pero no con espacio

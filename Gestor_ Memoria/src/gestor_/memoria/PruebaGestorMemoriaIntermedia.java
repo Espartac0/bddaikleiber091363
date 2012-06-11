@@ -9,7 +9,6 @@ package gestor_.memoria;
  * @author Kleiber
  */
 public class PruebaGestorMemoriaIntermedia {
-
     public static void main(String[] args) {
         // TODO code application logic here
         // craer un gestro de memoria
@@ -18,7 +17,7 @@ public class PruebaGestorMemoriaIntermedia {
         System.out.println("Paginas del Disco : ");
         Pagina[] paginas = new Pagina[10];
         for (int i = 0; i < paginas.length; i++) {
-            Pagina pagina =  new Pagina(i,"p" + i);
+            Pagina pagina =  new Pagina(i,"p" + i,false);
             paginas[i] = pagina;
             System.out.println(pagina);
         }
@@ -32,7 +31,7 @@ public class PruebaGestorMemoriaIntermedia {
         System.out.println(gestorBuffer);
         
         System.out.println("Poner una pagina en el buffer: ");
-        Pagina paginaN = new Pagina(10, "p10");
+        Pagina paginaN = new Pagina(10, "p10",false);
         Pagina paginaE = gestorBuffer.ponerPaginaEnBuffer(paginaN);
         System.out.println(paginaE);
         System.out.println(gestorBuffer);
@@ -52,11 +51,23 @@ public class PruebaGestorMemoriaIntermedia {
         /*EJERCICIO 1*/
         /*INSERTAMOS LAS MISMAS PAGINAS*/
         System.out.println("Actualizar una pagina");
-        Pagina paginaA1 = new Pagina(6,"pa6");
+        Pagina paginaA1 = new Pagina(6,"pa6",false);
         Pagina Actualizado = gestorBuffer.ponerPaginaEnBuffer(paginaA1);
-        paginaA1 = new Pagina(4,"pa4");
-        Actualizado = gestorBuffer.ponerPaginaEnBuffer(paginaA1);
         System.out.println(Actualizado);
+        System.out.println(gestorBuffer);
+        
+        /*EJERCICIO 2*/
+        /*INSERTAMOS UNA PAGINA CLAVADA*/
+        System.out.println("Ponemos una pagina clavada");
+        Pagina paginaC1 = new Pagina(12,"pc12",true);
+        Pagina C1 = gestorBuffer.ponerPaginaEnBuffer(paginaC1);
+        Actualizado = gestorBuffer.ponerPaginaEnBuffer(C1);
+        System.out.println(C1);
+        System.out.println(gestorBuffer);
+        /*INTENTAMOS MODIFICAR LA PAGINA CLAVADA*/
+        Pagina paginaC2 = new Pagina(12,"pcm12",true);
+        Pagina C2 = gestorBuffer.ponerPaginaEnBuffer(paginaC2);
+        System.out.println(C2);
         System.out.println(gestorBuffer);
         
     }

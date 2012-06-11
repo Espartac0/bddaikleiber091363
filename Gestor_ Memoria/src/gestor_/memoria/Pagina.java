@@ -13,12 +13,15 @@ public class Pagina<T> {
     private int numeroPagina;
     private T datos;
     //--variable para verificar si se actualizo la pagina
+    private boolean Clavada;
     private boolean Actualizo;
 
     //--constructor
-    public Pagina(int numeroPagina,T datos){
+    public Pagina(int numeroPagina,T datos,boolean clavada){
         this.numeroPagina = numeroPagina;
         this.datos = datos;
+        /*un atributo, para verificar si una pagina es clavada o no*/
+        this.Clavada = clavada;
         /* inicializamos con false, cuando se llegue a actualizar sera true
            pero solo hasta que sea grabado en disco, por que luego volvera 
            con el valor de false ya que esta grabado en disco y aun no se actualizo
@@ -49,6 +52,13 @@ public class Pagina<T> {
 
     public void setActualizo(boolean actualizo) {
         this.Actualizo = actualizo;
+    }
+    public boolean getClavada() {
+        return Clavada;
+    }
+
+    public void setClavada(boolean clavada) {
+        this.Clavada = clavada;
     }
     //--tostring()
     @Override
