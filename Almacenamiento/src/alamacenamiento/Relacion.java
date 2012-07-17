@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author Kleiber
+ * @author Jennifer,Kleiber,Anibal
  */
 public class Relacion implements java.io.Serializable, Iterable<Atributo> {
 

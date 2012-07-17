@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Kleiber
+ * @author Jennifer,Kleiber,Anibal
  */
 public class Tupla {
 

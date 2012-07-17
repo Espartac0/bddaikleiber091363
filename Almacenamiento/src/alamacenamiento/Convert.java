@@ -6,7 +6,7 @@ package alamacenamiento;
 
 /**
  *
- * @author Kleiber
+ * @author Jennifer,Kleiber,Anibal
  */
 public class Convert {
 

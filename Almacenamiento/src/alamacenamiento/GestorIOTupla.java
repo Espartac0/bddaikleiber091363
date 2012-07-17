@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Kleiber
+ * @author Jennifer,Kleiber,Anibal
  */
 public class GestorIOTupla {
 
@@ -259,8 +259,7 @@ public class GestorIOTupla {
      */
     public static void main(String args[]) {
         try {
-            Scanner in = new Scanner(System.in);
-            int numero = in.nextInt();
+            
                 
             List<Atributo> attrs = new ArrayList<Atributo>();
             attrs.add(new Atributo("character", Character.class));
@@ -277,21 +276,36 @@ public class GestorIOTupla {
             byte[] bytes = new byte[1024];
             GestorIOTupla man  = new GestorIOTupla(rel, "redes");
             
+            //============================================================================
+            // AGREGAR VARIAS TUPLAS 
+            Scanner in = new Scanner(System.in);
+            System.out.println("numero de tuplas : ");
+            int numero = in.nextInt();
             for (int i = 0; i < numero; i++) {   
                 List<Comparable> v = new ArrayList<Comparable>();
+                System.out.print(" char : ");
                 char c = Character.valueOf(in.next().charAt(0));
                 v.add(new Character(c));
+                System.out.print(" byte : ");
                 v.add(in.nextByte());
+                System.out.print(" shor : ");
                 v.add(in.nextShort());
+                System.out.print(" int : ");
                 v.add(in.nextInt());
+                System.out.print(" long : ");
                 v.add(in.nextLong());
+                System.out.print(" float : ");
                 v.add(Float.parseFloat(in.next()));
+                System.out.print(" double : ");
                 v.add(Double.parseDouble(in.next()));
+                System.out.print(" string : ");
                 v.add(in.next());
 
                 Tupla t = new Tupla(new IdentificadorTupla("redes", i), v);
                 //GestorIOTupla man = new GestorIOTupla(rel, "redes");
                 java.io.RandomAccessFile raf = new java.io.RandomAccessFile("redes", "rw");
+                //===================================================================================
+                
                 System.out.println("writing tuple..." + t);
                 //byte[] bytes = new byte[1024];
                 //man.escribirTupla(t, raf);
